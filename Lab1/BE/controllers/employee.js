@@ -33,6 +33,5 @@ exports.createEmployee = async (req, res, next) => {
     // Add the new employee to the array
     employee.push({ id, name });
 
-    res.status(201).json({ message: "Employee created successfully" });
    
 };
