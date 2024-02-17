@@ -30,10 +30,7 @@ function fetchEmployees() {
 }
 
 // Add event listener to submit button
-document.getElementById('submitbtn').addEventListener('click', (event) => {
-  event.preventDefault(); // Prevent default form submission behavior
-  createEmployee(); // Call createEmployee function
-});
+document.getElementById('submitbtn').addEventListener('click', createEmployee);
 
 // Add event listener to delete button
 document.getElementById('dataTable').addEventListener('click', (event) => {
@@ -47,6 +44,11 @@ document.getElementById('dataTable').addEventListener('click', (event) => {
 async function createEmployee() {
   const name = document.getElementById('name').value; // Get name from input field
   const id = document.getElementById('id').value; // Get ID from input field
+
+  if (!id || !name)
+  {
+    return;
+  }
 
   // Send data to backend
   try {
